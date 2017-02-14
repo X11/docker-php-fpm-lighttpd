@@ -13,10 +13,11 @@ RUN ln -snf /usr/share/zoneinfo/Etc/UTC /etc/localtime \
 # Set the PHP config
 RUN mkdir -p /usr/local/etc/php
 COPY php.ini /usr/local/etc/php/php.ini
+
+# Setup lighttpd config
 COPY lighttpd.conf /etc/lighttpd/lighttpd.conf
 
-# Copy source files to container
-RUN chown -R www-data. /var/www/localhost/
+#RUN chown -R www-data. /var/www/localhost/
 
 WORKDIR /var/www/localhost
 CMD php-fpm -D && lighttpd -D -f /etc/lighttpd/lighttpd.conf
