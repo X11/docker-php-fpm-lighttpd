@@ -17,9 +17,6 @@ COPY php.ini /usr/local/etc/php/php.ini
 # Setup lighttpd config
 COPY lighttpd.conf /etc/lighttpd/lighttpd.conf
 
-# Setup compress folder
-RUN mkdir -p /var/compress/localhost/ && chown lighttpd:lighttpd /var/compress/localhost/
-
 #RUN chown -R www-data. /var/www/localhost/
 
 WORKDIR /var/www/localhost
